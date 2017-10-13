@@ -9,10 +9,17 @@ class ThreadsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testUserReceivesThreads()
+    public function testUserSeesAllThreads()
     {
+        $thread = factory('App\Thread')->create();
         $response = $this->get('/threads');
+        $response->assertSee($thread->title);
+    }
 
-        $response->assertStatus(200);
+    public function testUserSeeSingleThread()
+    {
+        $thread = factory('App\Thread')->create();
+        $response = $this->get('/threads/' . $thread->id);
+        $response->assertSee($thread->title);
     }
 }
