@@ -17,15 +17,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 @foreach ($thread->replies as $reply)
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            {{ $reply->owner->name }}
-                            {{ $reply->created_at->diffForHumans() }}
-                        </div>
-                        <div class="panel-body">
-                            {{ $reply->body }}
-                        </div>
-                    </div>
+                    @include ('threads.reply')
                 @endforeach
             </div>
         </div>
