@@ -9,11 +9,18 @@ class ThreadTest extends TestCase
 {
     use RefreshDatabase;
 
-    function testAThreadHasReplies()
+    public function testAThreadHasReplies()
     {
         $thread = factory('App\Thread')->create();
 
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $thread->replies);
 
+    }
+
+    public function testThreadHasCreator()
+    {
+        $thread = factory('App\Thread')->create();
+
+        $this->assertInstanceOf('App\User', $thread->owner);
     }
 }
