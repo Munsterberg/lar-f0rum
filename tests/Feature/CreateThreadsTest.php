@@ -12,7 +12,7 @@ class CreateThreadsTest extends TestCase
     public function testAuthenticatedUserCanCreateNewThreads()
     {
         $user = create('App\User');
-        $this->be($user);
+        $this->signIn($user);
 
         $thread = make('App\Thread');
         $this->post('/threads', $thread->toArray());
