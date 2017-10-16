@@ -41,7 +41,7 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        request()->validate([
             'title' => 'required|max:100',
             'body' => 'required',
             'channel_id' => 'required|exists:channels,id'
