@@ -21,6 +21,7 @@
                                 <button type="submit" class="btn btn-primary btn-block">Post</button>
                             </div>
                         </form>
+                        @include ('partials.errors')
                     </div>
                 </div>
             </div>
